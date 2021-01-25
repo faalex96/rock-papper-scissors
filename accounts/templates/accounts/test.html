@@ -1,6 +1,9 @@
 {% extends 'accounts/base.html' %}
 {% block content %}
     <h1>Hello {{request.user}}</h1>
+    <p> Hello {{request.user.player.wins}}</p>
+    <p> Hello {{request.user.player.loses}}</p>
+    <p> Hello {{request.user.player.match_num}}</p>
     <button type="button" onclick="document.getElementById('logoutform').submit()">Logout</button>
     <form id="logoutform" method="POST" action="{% url 'logout' %}">
         {% csrf_token %}
