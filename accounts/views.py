@@ -23,7 +23,7 @@ def sign_up_view(request):
             user = form.save()
             Player.objects.create(player=user)
             login(request, user)
-            return render(request, 'accounts/test.html', {})
+            return redirect('/accounts/player/profile_page/')
     context['form'] = form
     return render(request, 'registration/signup.html', context)
 

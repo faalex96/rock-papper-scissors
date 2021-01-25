@@ -1,0 +1,24 @@
+{% extends 'match/base3.html' %}
+
+{% block match %}
+    <div class="wrapper">
+        <div class="top">
+            <h1>Edit your own match</h1>
+            {% include 'player/logout_function.html' %}
+        </div>
+        <div class="edit-content">
+            <div class="row">
+                <p>Edit number of rounds: </p>
+                <input type="number">
+            </div>
+            <div class="row">
+                <p>Discard one option</p>
+                <div class="radio-group">
+                    <input type="radio" value="rock">
+                    <input type="radio" value="papper">
+                    <input type="radio" value="scissors">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

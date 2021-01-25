@@ -1,0 +1,35 @@
+{% extends 'match/base3.html' %}
+
+{% block match %}
+    <div class="wrapper">
+        <div class="top">
+            <h3>ROUND: </h3>
+            {% include 'player/logout_function.html' %}
+        </div>
+        <div class="middle">
+            <div class="left">
+                <div class="user-info">
+                    <p class="user-name">{{request.user.username}}</p>
+                    <p class="user-wins">0</p>
+                </div>
+                <div class="user-choices">
+                    <button type="button">Rock</button>
+                    <button type="button">Papper</button>
+                    <button type="button">Scissors</button>
+                </div>
+            </div>
+            <div class="center">
+                <div class="img-container">
+                    <img src="#" alt="#">
+                    <img src="#" alt="#">
+                </div>
+            </div>
+            <div class="right">
+                <div class="computer-info">
+                    <p>Computer</p>
+                    <p class="computer-wins">0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

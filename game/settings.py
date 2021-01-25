@@ -122,4 +122,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-LOGIN_REDIRECT_URL = '/accounts/test/'
+LOGIN_REDIRECT_URL = '/accounts/player/profile_page/'

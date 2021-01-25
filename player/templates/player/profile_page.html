@@ -1,0 +1,30 @@
+{% extends 'player/base2.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="container-title">
+            <h2>Welcome {{request.user.username}}</h2>
+            <div class="logout">
+                {% include 'player/logout_function.html' %}
+            </div>
+        </div>
+        <div class="container-chioces">
+            <a href="{% url 'quick-match' %}">Play a quick match</a>
+            <a href="{% url 'design-match' %}">Design a match</a>
+        </div>
+        <div class="info-card">
+            <h4>Your stats: </h4>
+            <ul>
+                <li>Won: {{request.user.player.wins}}</li>
+                <li>Lost: {{request.user.player.loses}}</li>
+                <li>Games played: {{request.user.player.match_num}}</li>
+                <li>Win rate: {{request.user.player.avg_win}} </li>
+            </ul>
+        </div>
+        <div class="info-card">
+            <h4>Leader board</h4>
+            <!--table-->
+        </div>
+    </div>
+
+{% endblock %}
