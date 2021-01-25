@@ -1,0 +1,9 @@
+{% extends 'accounts/base.html' %}
+{% block content %}
+    <h1>Hello {{request.user}}</h1>
+    <button type="button" onclick="document.getElementById('logoutform').submit()">Logout</button>
+    <form id="logoutform" method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <input type="hidden">
+    </form>
+{% endblock %}

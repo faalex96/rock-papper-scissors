@@ -1,0 +1,25 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+    <div class="title">
+        <h1>Hello and welcome to the game of: </h1>
+        <br>
+        <h3>Rock</h3>
+        <h3>Papper</h3>
+        <h3>Scrissorcs</h3>
+    </div>
+    <div class="container">
+        <div class="left">
+            <div class="img-container">
+                <img src="" alt="">
+                <img src="" alt="">
+            </div>
+        </div>
+        <div class="right">
+            <div class="btn-container">
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'sign-up' %}">Sign up</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
