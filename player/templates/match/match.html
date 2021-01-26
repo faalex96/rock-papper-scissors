@@ -1,35 +1,42 @@
 {% extends 'match/base3.html' %}
+{% load staticfiles %}
 
 {% block match %}
     <div class="wrapper">
         <div class="top">
-            <h3>ROUND: </h3>
+            <a href="{% url 'profile' %}">My profile</a>
+            <h3 id="round-num">ROUND: </h3>
             {% include 'player/logout_function.html' %}
         </div>
         <div class="middle">
             <div class="left">
                 <div class="user-info">
                     <p class="user-name">{{request.user.username}}</p>
-                    <p class="user-wins">0</p>
+                    <p id="user-wins">0</p>
                 </div>
                 <div class="user-choices">
-                    <button type="button">Rock</button>
-                    <button type="button">Papper</button>
-                    <button type="button">Scissors</button>
+                    <button id="rock" type="button" value="Rock">Rock</button>
+                    <button id="papper" type="button" value="Papper">Papper</button>
+                    <button id="scissors" type="button" value="Scissors">Scissors</button>
                 </div>
             </div>
             <div class="center">
                 <div class="img-container">
-                    <img src="#" alt="#">
-                    <img src="#" alt="#">
+                    <img id="player-img" src="{% static 'player/images/Papper_player.png' %}" alt="#">
+                    <img id="comp-img" src="{% static 'player/images/Rock_comp.png' %}" alt="#">
                 </div>
+                <button id="play-again" type="button">Play again</button>
             </div>
             <div class="right">
                 <div class="computer-info">
                     <p>Computer</p>
-                    <p class="computer-wins">0</p>
+                    <p id="computer-wins">0</p>
                 </div>
             </div>
         </div>
     </div>
+    <!--form id="end-match" method="POST" action="{% url 'end-match' %}">
+        {% csrf_token %}
+        <input type="hidden">
+    </form-->
 {% endblock %}

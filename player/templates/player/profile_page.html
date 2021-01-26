@@ -23,7 +23,26 @@
         </div>
         <div class="info-card">
             <h4>Leader board</h4>
-            <!--table-->
+            <table>
+                <tr>
+                    <th>Rank</th>
+                    <th>Username</th>
+                    <th>Won</th>
+                    <th>Lost</th>
+                    <th>Played</th>
+                    <th>Average Win</th>
+                </tr>
+                {% for player in leader_board %}
+                    <tr>
+                        <td># {{forloop.counter}}.</td>
+                        <td>{{player.player.username}}</td>
+                        <td>{{player.wins}}</td>
+                        <td>{{player.loses}}</td>
+                        <td>{{player.match_num}}</td>
+                        <td>{{player.avg_win}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
         </div>
     </div>
 

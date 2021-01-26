@@ -1,4 +1,4 @@
-<button type="button" onclick="document.getElementById('logoutform').submit()">Logout</button>
+<button id="logout-btn" type="button" onclick="document.getElementById('logoutform').submit()">Logout</button>
 <form id="logoutform" method="POST" action="{% url 'logout' %}">
     {% csrf_token %}
     <input type="hidden">
