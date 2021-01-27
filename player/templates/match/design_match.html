@@ -6,19 +6,28 @@
             <h1>Edit your own match</h1>
             {% include 'player/logout_function.html' %}
         </div>
-        <div class="edit-content">
-            <div class="row">
-                <p>Edit number of rounds: </p>
-                <input type="number">
-            </div>
-            <div class="row">
-                <p>Discard one option</p>
-                <div class="radio-group">
-                    <input type="radio" value="rock">
-                    <input type="radio" value="papper">
-                    <input type="radio" value="scissors">
+        
+            <form method="POST" action="{% url 'custom-match' %}">
+                {% csrf_token %}
+                <div class="edit-content">
+                    <div class="row">
+                        <p>Edit number of rounds: </p>
+                        <input type="number" id="rounds-num" name="round-num" required>
+                    </div>
+                    <div class="row">
+                        <p>Discard one option (optinal)</p>
+                        <div class="radio-group">
+                            <input type="radio" name="choice" value="Rock">
+                            <label for="rock">Rock</label>
+                            <input type="radio" name="choice" value="Papper">
+                            <label for="papper">Papper</label>
+                            <input type="radio" name="choice" value="Scissors">
+                            <label for="scissors">Scissors</label>
+                        </div>
+                    </div>
+                    <button type="submit">Create match</button>
                 </div>
-            </div>
-        </div>
+            </form>
+        
     </div>
 {% endblock %}

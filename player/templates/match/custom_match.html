@@ -1,2 +1,5 @@
 {% include  'match/match.html '%}
-<!-- include different source deppending on design match or quick match -->
+{% load staticfiles %}
+
+<script type="module" src="{% static 'player/js/custom_match.js' %}"></script>
+

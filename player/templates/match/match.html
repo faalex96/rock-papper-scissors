@@ -5,7 +5,7 @@
     <div class="wrapper">
         <div class="top">
             <a href="{% url 'profile' %}">My profile</a>
-            <h3 id="round-num">ROUND: </h3>
+            <h3 id="round-num">Round: </h3>
             {% include 'player/logout_function.html' %}
         </div>
         <div class="middle">
@@ -14,7 +14,7 @@
                     <p class="user-name">{{request.user.username}}</p>
                     <p id="user-wins">0</p>
                 </div>
-                <div class="user-choices">
+                <div class="user-choices" id="btn-group">
                     <button id="rock" type="button" value="Rock">Rock</button>
                     <button id="papper" type="button" value="Papper">Papper</button>
                     <button id="scissors" type="button" value="Scissors">Scissors</button>
@@ -35,8 +35,5 @@
             </div>
         </div>
     </div>
-    <!--form id="end-match" method="POST" action="{% url 'end-match' %}">
-        {% csrf_token %}
-        <input type="hidden">
-    </form-->
+    
 {% endblock %}

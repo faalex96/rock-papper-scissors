@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from .models import Player
+from django.http import JsonResponse
+from .models import Player, CustomMatch
 import json
 
 # Create your views here.
@@ -14,6 +15,13 @@ def profile_view(request):
 
 @login_required
 def quick_match_view(request):
+    if request.method == "GET":
+        if request.is_ajax():
+            data = {
+                "round-number": 5,
+                "discard-option": ""
+            }
+            return JsonResponse(data)
     return render(request, 'match/quick_match.html', {})
 
 
@@ -33,3 +41,25 @@ def end_game(request):
             player.lost()
         player.calc_avg()
     return render(request, 'match/quick_match.html', {})
+
+
+@login_required
+def custom_match(request):
+    context = {}
+    if request.method == "POST":
+        context["round-num"] = request.POST.get('round-num')
+        context["discard-option"] = request.POST.get(
+            'choice') if request.POST.get('choice') is not None else ""
+
+        match = CustomMatch.objects.create(
+            round_number=context['round-num'], discard_option=context['discard-option'])
+        match.save()
+    elif request.method == "GET":
+        if request.is_ajax():
+            match = CustomMatch.objects.all().last()
+            data = {}
+            data["round-number"] = match.round_number
+            data["discard-option"] = match.discard_option
+            #data = json.dumps(CustomMatch.objects.all().last().__dict__)
+            return JsonResponse(data)
+    return render(request, 'match/custom_match.html', {})

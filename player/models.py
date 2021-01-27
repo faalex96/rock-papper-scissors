@@ -25,3 +25,8 @@ class Player(models.Model):
         self.loses += 1
         self.match_num += 1
         self.save()
+
+
+class CustomMatch(models.Model):
+    round_number = models.IntegerField(default=5)
+    discard_option = models.CharField(max_length=10)
