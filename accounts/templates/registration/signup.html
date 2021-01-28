@@ -1,16 +1,31 @@
 {% extends 'accounts/base.html' %}
 
 {% block content %}
-<div class="container">
-    <div class="card">
-        <p>Sign up</p>
-        <form method="POST">
+<!-- left the same class and id names for css to pick up on -->
+<div class="login-container">
+    <div class="login-card">
+        <form id="login-form" method="POST">
             {% csrf_token %}
-            {{form.as_p}}
-            <button type="submit">Sign up</button>
+            <p>
+                <label>Username</label>
+                {{form.username}}
+            </p>
+            <p>
+                <label>Password</label>
+                {{form.password1}}
+            </p>
+            <p>
+                <label>Confirm password:</label>
+                {{form.password2}}
+            </p>
+            <div class="btn-center-div">
+                <button id="login-btn" type="submit">Sign up</button>
+            </div>
         </form>
-        <p>Alredy have an account? </p>
-        <a href="{% url 'login' %}">Login</a>
+        <div class="signup-box">
+            <p>Don't have an account? </p>
+            <a href="{% url 'login' %}">Login</a>
+        </div>
     </div>
 </div>
 {% endblock %}

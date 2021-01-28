@@ -1,24 +1,22 @@
 {% extends 'accounts/base.html' %}
-
+{% load staticfiles %}
 {% block content %}
     <div class="title">
-        <h1>Hello and welcome to the game of: </h1>
-        <br>
-        <h3>Rock</h3>
-        <h3>Papper</h3>
-        <h3>Scrissorcs</h3>
+        <p id="welcome-txt">Hello and welcome to the game of rock, papper, scissors.
+        Please sign up or login to procede if you have an account.</p>
+        
     </div>
     <div class="container">
         <div class="left">
             <div class="img-container">
-                <img src="" alt="">
-                <img src="" alt="">
+                <img src="{% static '/player/images/Scissors_player.png/' %}" alt="scissors">
+                <img src="{% static '/player/images/Rock_comp.png' %}" alt="rock">
             </div>
         </div>
         <div class="right">
             <div class="btn-container">
-                <a href="{% url 'login' %}">Login</a>
-                <a href="{% url 'sign-up' %}">Sign up</a>
+                <a id="login-link" href="{% url 'login' %}">Login</a>
+                <a id="logout-link" href="{% url 'sign-up' %}">Sign up</a>
             </div>
         </div>
     </div>

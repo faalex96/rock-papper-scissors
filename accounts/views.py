@@ -10,11 +10,6 @@ def home_view(request):
     return render(request, 'accounts/home.html', {})
 
 
-@login_required
-def test_view(request):
-    return render(request, 'accounts/test.html')
-
-
 def sign_up_view(request):
     context = {}
     form = UserCreationForm(request.POST or None)

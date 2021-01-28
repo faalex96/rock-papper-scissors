@@ -1,0 +1,12 @@
+.helptext {
+  display: none;
+}
+
+ul {
+  display: none;
+}
+
+#login-form p {
+  padding-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
