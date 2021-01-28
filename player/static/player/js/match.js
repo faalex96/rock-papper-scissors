@@ -1,5 +1,5 @@
 // Get data from database about custom match
-export function getData(game_link, end_link, gameType) {
+export function gamePlay(game_link, end_link, gameType) {
   let url = "/accounts/player/".concat(game_link, "/");
   fetch(url, {
     headers: {
@@ -46,21 +46,36 @@ export function getData(game_link, end_link, gameType) {
 
       // Check game type and limit computer options if needed
       let computer_table = {};
-      let computer_options = 0;
+      let computer_options = [];
+
       if (gameType == "regular") {
         computer_table = { 0: "Rock", 1: "Papper", 2: "Scissors" };
-        computer_options = 3;
+        computer_options = [0, 1, 2];
       } else {
-        let count = 0; // can't use i. Need 0 and 1 for keys.
+        // Dinamicaly crate computer table if computer doesn't have all options
         for (let i = 0; i < options.length; i++) {
           if (options[i] != data["discard-option"]) {
-            computer_table[count++] = options[i];
+            computer_table[i] = options[i];
           }
         }
-        // Check wheter user checked any radio button
-        computer_options = data["discard-option"] == "" ? 3 : 2;
+
+        // Limit columns from which can computer choose in game_table
+        switch (data["discard-option"]) {
+          case "Rock":
+            computer_options = [1, 2];
+            break;
+          case "Papper":
+            computer_options = [0, 2];
+            break;
+          case "Scissors":
+            computer_options = [0, 1];
+            break;
+          default:
+            computer_options = [0, 1, 2]; // If no radiobutton is selected
+            break;
+        }
       }
-      console.log(computer_table, computer_options);
+
       // get number of rounds
       let round_count = 0;
       let round_number = data["round-number"];
@@ -173,10 +188,13 @@ export function getData(game_link, end_link, gameType) {
         } else {
           round_count++;
 
-          let comp_choice = Math.floor(Math.random() * computer_options);
+          let comp_choice =
+            computer_options[
+              Math.floor(Math.random() * computer_options.length)
+            ];
           let user_choice = e.target.value;
           let res = game_table[user_choice][comp_choice];
-          console.log(computer_table[comp_choice]);
+          console.log(computer_table, comp_choice);
           let srcPlayer = `http://localhost:8000/static/player/images/${user_choice}_player.png`;
           let srcComputer = `http://localhost:8000/static/player/images/${computer_table[comp_choice]}_comp.png`;
 
