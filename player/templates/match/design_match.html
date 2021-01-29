@@ -1,12 +1,12 @@
 {% extends 'match/base3.html' %}
 
-{% block match %}
-    <div class="wrapper">
+{% block content %}
+    <div class="design-wrapper">
         <div class="top">
             <h1>Edit your own match</h1>
             {% include 'player/logout_function.html' %}
         </div>
-        
+        <div class="form-content">
             <form method="POST" action="{% url 'custom-match' %}">
                 {% csrf_token %}
                 <div class="edit-content">
@@ -15,7 +15,7 @@
                         <input type="number" id="rounds-num" name="round-num" required>
                     </div>
                     <div class="row">
-                        <p>Discard one option (optinal)</p>
+                        <p>Discard one option for computer (optional)</p>
                         <div class="radio-group">
                             <input type="radio" name="choice" value="Rock">
                             <label for="rock">Rock</label>
@@ -25,9 +25,11 @@
                             <label for="scissors">Scissors</label>
                         </div>
                     </div>
-                    <button type="submit">Create match</button>
+                    <div id="btn-holder">
+                        <button type="submit">Create match</button>
+                    </div>
                 </div>
             </form>
-        
+        </div>
     </div>
 {% endblock %}

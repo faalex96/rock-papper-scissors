@@ -1,11 +1,10 @@
 {% extends 'match/base3.html' %}
 {% load staticfiles %}
 
-{% block match %}
+{% block content %}
     <div class="wrapper">
         <div class="top">
             <a href="{% url 'profile' %}">My profile</a>
-            <h3 id="round-num">Round: </h3>
             {% include 'player/logout_function.html' %}
         </div>
         <div class="middle">
@@ -21,11 +20,12 @@
                 </div>
             </div>
             <div class="center">
+                <h3 id="round-num">Round: </h3>
                 <div class="img-container">
                     <img id="player-img" src="{% static 'player/images/Papper_player.png' %}" alt="#">
                     <img id="comp-img" src="{% static 'player/images/Rock_comp.png' %}" alt="#">
                 </div>
-                <button id="play-again" type="button">Play again</button>
+                <button id="play-again" type="button">Start over</button>
             </div>
             <div class="right">
                 <div class="computer-info">

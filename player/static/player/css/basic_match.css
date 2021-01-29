@@ -1,0 +1,116 @@
+.top {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.top a {
+  margin-right: auto;
+  margin-left: 1rem;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+}
+
+button {
+  font-size: 1.3rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--primary-clr-1);
+  background: white;
+  color: var(--primary-clr-1);
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+  background: var(--primary-clr-1);
+  color: white;
+  border: 1px solid white;
+}
+
+#logout-btn {
+  margin-right: 2rem;
+}
+
+.middle {
+  display: flex;
+  margin: 2rem 0;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.user-info {
+  font-size: 1.3rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  margin-top: 1rem;
+}
+
+#user-wins {
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.user-choices {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-choices button {
+  margin: 0.5rem;
+}
+
+/* Think about hover or click */
+.center {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.center h3,
+.img-container,
+button {
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.img-container img {
+  border-radius: 10px;
+}
+
+#play-again {
+  margin-bottom: 2rem;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.computer-info {
+  font-size: 1.3rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  margin-top: 1rem;
+}
+
+#computer-wins {
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 2rem;
+  font-weight: 600;
+}

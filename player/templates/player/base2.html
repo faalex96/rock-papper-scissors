@@ -1,20 +1,23 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'accounts/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'player/css/profile_page.css' %}">
     <title>Welcome</title>
 </head>
 <body>
     <header>
-        <h1>ROCK PAPPER SCISSORS</h1>
+        <h1><a href="{% url 'profile' %}">ROCK PAPPER SCISSORS</a></h1>
     </header>
     <main>
         {% block content %}
         {% endblock %}
     </main>
     <footer>
-        <h3>Created by Aleksandar Fa</h3>
+        <h4>Created by Aleksandar Fa</h4>
     </footer>
     
 </body>
